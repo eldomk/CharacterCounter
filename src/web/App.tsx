@@ -1,5 +1,5 @@
 // Character Counter - A simple tool to count characters copied to the clipboard.
-// Copyright (C) 2025 molyashi
+// Copyright (C) 2025 eldomk
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published
@@ -39,6 +39,7 @@ interface Counts {
   withoutNewlines: number;
   withoutSpacesAndNewlines: number;
   lines: number;
+  englishWords: number;
   bytesUtf8: number;
   bytesUtf16: number;
   bytesShiftJis: number;
@@ -46,6 +47,8 @@ interface Counts {
   bytesJis: number;
   manuscriptPages: number;
 }
+
+const ENGLISH_WORD_REGEX = /[A-Za-z]+(?:[-'][A-Za-z]+)*/g;
 
 export const App = () => {
   const [platform, setPlatform] = useState<string>("");
@@ -55,6 +58,7 @@ export const App = () => {
     withoutNewlines: 0,
     withoutSpacesAndNewlines: 0,
     lines: 1,
+    englishWords: 0,
     bytesUtf8: 0,
     bytesUtf16: 0,
     bytesShiftJis: 0,
@@ -65,7 +69,7 @@ export const App = () => {
   const [isAlwaysOnTop, setIsAlwaysOnTop] = useState<boolean>(false);
   const [isAutoClipboard, setIsAutoClipboard] = useState<boolean>(true);
   const [selectedTheme, setSelectedTheme] = useState<"light" | "dark" | "auto">(
-    "auto"
+    "auto",
   );
   const [displayTheme, setDisplayTheme] = useState<"light" | "dark">("light");
   const lastClipboardText = useRef<string>("");
@@ -235,7 +239,7 @@ export const App = () => {
             }
             break;
         }
-      }
+      },
     );
 
     return () => {
@@ -344,6 +348,7 @@ export const App = () => {
     const withoutNewlines = Array.from(textWithoutNewlines).length;
     const withoutSpacesAndNewlines = Array.from(text.replace(/\s/g, "")).length;
     const lines = text.length === 0 ? 0 : text.split("\n").length;
+    const englishWords = text.match(ENGLISH_WORD_REGEX)?.length ?? 0;
     const bytesUtf8 = new TextEncoder().encode(text).length;
     const bytesUtf16 = text.length * 2;
     const unicodeArray = Encoding.stringToCode(text);
@@ -366,6 +371,7 @@ export const App = () => {
       withoutNewlines,
       withoutSpacesAndNewlines,
       lines,
+      englishWords,
       bytesUtf8,
       bytesUtf16,
       bytesShiftJis,
@@ -385,7 +391,7 @@ export const App = () => {
     if (!platform) return;
     window.electronAPI.updateMenuState(
       "toggle-auto-clipboard",
-      isAutoClipboard
+      isAutoClipboard,
     );
     if (!isAutoClipboard) return;
     const intervalId = setInterval(async () => {
@@ -579,6 +585,17 @@ export const App = () => {
                     <button
                       className="icon-copy-button"
                       onClick={() => handleCopy(counts.lines)}
+                      title="数値をコピー"
+                    >
+                      <CopyIcon />
+                    </button>
+                  </div>
+                  <div className="info-item">
+                    <span>英単語数</span>
+                    <span>{counts.englishWords}</span>
+                    <button
+                      className="icon-copy-button"
+                      onClick={() => handleCopy(counts.englishWords)}
                       title="数値をコピー"
                     >
                       <CopyIcon />

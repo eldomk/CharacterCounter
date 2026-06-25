@@ -1,5 +1,5 @@
 // Character Counter - A simple tool to count characters copied to the clipboard.
-// Copyright (C) 2025 molyashi
+// Copyright (C) 2025 eldomk
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published
@@ -154,7 +154,7 @@ function showAboutDialog() {
   dialog.showMessageBox(mainWindow, {
     type: "info",
     title: "バージョン情報",
-    message: `文字数カウンター\nバージョン: ${appVersion}\n制作者: molyashi`,
+    message: `文字数カウンター\nバージョン: ${appVersion}\n制作者: eldomk`,
     buttons: ["OK"],
   });
 }

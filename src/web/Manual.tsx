@@ -1,5 +1,5 @@
 // Character Counter - A simple tool to count characters copied to the clipboard.
-// Copyright (C) 2025 molyashi
+// Copyright (C) 2025 eldomk
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published
@@ -65,7 +65,7 @@ export const Manual: React.FC = () => {
         <p>
           詳細な使い方は
           <a
-            href="https://note.com/molyashi/n/n354603f861c7#7d6b7e80-2aec-4379-b166-e0e58805cb2e"
+            href="https://note.com/eldomk/n/n354603f861c7#7d6b7e80-2aec-4379-b166-e0e58805cb2e"
             onClick={handleLinkClick}
           >
             こちらの記事

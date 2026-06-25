@@ -1,5 +1,5 @@
 // Character Counter - A simple tool to count characters copied to the clipboard.
-// Copyright (C) 2025 molyashi
+// Copyright (C) 2025 eldomk
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published
@@ -145,12 +145,14 @@ export const MenuBar: React.FC<MenuBarProps> = ({
         switch (e.key) {
           case "ArrowDown":
             setSelectedDropdownIndex((prev) =>
-              prev === null ? 0 : (prev + 1) % itemCount
+              prev === null ? 0 : (prev + 1) % itemCount,
             );
             break;
           case "ArrowUp":
             setSelectedDropdownIndex((prev) =>
-              prev === null ? itemCount - 1 : (prev - 1 + itemCount) % itemCount
+              prev === null
+                ? itemCount - 1
+                : (prev - 1 + itemCount) % itemCount,
             );
             break;
           case "Enter":
@@ -407,7 +409,7 @@ export const MenuBar: React.FC<MenuBarProps> = ({
                           </span>
                         )}
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               )}

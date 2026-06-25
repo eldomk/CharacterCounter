@@ -1,7 +1,7 @@
 {
   "_license_notes": [
     "Character Counter - A simple tool to count characters copied to the clipboard.",
-    "Copyright (C) 2025 molyashi",
+    "Copyright (C) 2025 eldomk",
     "",
     "This program is free software: you can redistribute it and/or modify",
     "it under the terms of the GNU Affero General Public License as published",
@@ -17,7 +17,7 @@
     "along with this program.  If not, see <https://www.gnu.org/licenses/>."
   ],
   "name": "character-counter",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A simple character counter app.",
   "main": "dist/main.js",
   "scripts": {
@@ -35,15 +35,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/molyashi/CharacterCounter.git"
+    "url": "https://github.com/eldomk/CharacterCounter.git"
   },
   "keywords": [],
-  "author": "molyashi <123541667+molyashi@users.noreply.github.com>",
+  "author": "eldomk <123541667+eldomk@users.noreply.github.com>",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/molyashi/CharacterCounter/issues"
+    "url": "https://github.com/eldomk/CharacterCounter/issues"
   },
-  "homepage": "https://github.com/molyashi/CharacterCounter#readme",
+  "homepage": "https://github.com/eldomk/CharacterCounter#readme",
   "devDependencies": {
     "@types/encoding-japanese": "^2.2.1",
     "@types/node": "^24.0.10",
@@ -74,7 +74,7 @@
     "react-router-dom": "^7.6.3"
   },
   "build": {
-    "appId": "com.molyashi.CharacterCounter",
+    "appId": "com.eldomk.CharacterCounter",
     "productName": "文字数カウンター",
     "artifactName": "CharacterCounter-Setup-${version}-${arch}.${ext}",
     "files": [
@@ -92,7 +92,7 @@
       "icon": "assets/icon.png",
       "publish": {
         "provider": "github",
-        "owner": "molyashi",
+        "owner": "eldomk",
         "repo": "CharacterCounter",
         "channel": "latest-win"
       }
@@ -105,7 +105,7 @@
       "category": "public.app-category.utilities",
       "publish": {
         "provider": "github",
-        "owner": "molyashi",
+        "owner": "eldomk",
         "repo": "CharacterCounter",
         "channel": "latest-mac"
       }
@@ -119,7 +119,7 @@
       "category": "Utility",
       "publish": {
         "provider": "github",
-        "owner": "molyashi",
+        "owner": "eldomk",
         "repo": "CharacterCounter",
         "channel": "latest-linux"
       }
